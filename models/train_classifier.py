@@ -2,6 +2,7 @@
 import sys
 import pandas as pd
 import numpy as np
+import pickle
 
 from sqlalchemy import create_engine
 
@@ -122,7 +123,8 @@ def evaluate_model(model, X_test, Y_test, category_names):
         None
     """
     Y_pred = model.predict(X_test)
-    confusion_mat = confusion_matrix(Y_test, Y_pred, labels=category_names)
+    # confusion_mat = confusion_matrix(Y_test, Y_pred, labels=category_names)
+    confusion_mat = confusion_matrix(Y_test, Y_pred)
     accuracy = (Y_pred == Y_test).mean()
     
     print("Categories: \n", category_names)
@@ -157,6 +159,7 @@ def main():
         print('Loading data...\n    DATABASE: {}'.format(database_filepath))
         X, Y, category_names = load_data(database_filepath)
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
+        print(len(X_train), len(X_test), len(Y_train), len(Y_test), len(category_names))
         
         print('Building model...')
         model = build_model()
