@@ -5,9 +5,9 @@ This can be used by organisations to easly identify the nature of the disaster s
 
 consisting of 3 main parts:
 
-1.creating an ETL pipeline to clean the data.
-2.Machine Learning pipeline to train a model.
-3.Web app to predict new messages.
+1. creating an ETL pipeline to clean the data.
+2. Machine Learning pipeline to train a model.
+3. Web app to predict new messages.
 
 ## Table of Contents
 1. [Description](#description)
