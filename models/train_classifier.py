@@ -15,6 +15,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.pipeline import Pipeline, FeatureUnion
 
+from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -124,13 +125,13 @@ def evaluate_model(model, X_test, Y_test, category_names):
     """
     Y_pred = model.predict(X_test)
     # confusion_mat = confusion_matrix(Y_test, Y_pred, labels=category_names)
-    confusion_mat = confusion_matrix(Y_test, Y_pred)
-    accuracy = (Y_pred == Y_test).mean()
-    
-    print("Categories: \n", category_names)
-    print("Model Accuracy: ", accuracy)
-    print("Confusion Matrix: \n", confusion_mat)
-    print("\n Top Important Features: ", model.best_params_)
+    # confusion_mat = confusion_matrix(Y_test, Y_pred)
+    # accuracy = (Y_pred == Y_test).mean()
+
+    # Print the classification report
+    for i, col in enumerate(category_names):
+        print('{} category metrics: '.format(col))
+        print(classification_report(Y_test.iloc[:,i], Y_pred[:,i]))
 
 
 def save_model(model, model_filepath):

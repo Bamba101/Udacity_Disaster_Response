@@ -1,9 +1,13 @@
 # Disaster Response Pipeline Project
 
-Project build a model for an API that classifies disaster messages, consisting of 3 main parts.
-    1.creating an ETL pipeline to clean the data.
-    2.Machine Learning pipeline to train a model.
-    3.Web app to predict new messages.
+Project Motivation:
+
+Project build a model for an API that classifies disaster messages.This can be used by organisations to easly identify the nature of the disaster so as to reach out for a relevant relief agency (Fire , Medical , Security etc)
+
+consisting of 3 main parts:
+1.creating an ETL pipeline to clean the data.
+2.Machine Learning pipeline to train a model.
+3.Web app to predict new messages.
 
 ## Table of Contents
 1. [Description](#description)
