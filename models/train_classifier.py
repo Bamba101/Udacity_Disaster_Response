@@ -46,10 +46,9 @@ def load_data(database_filepath):
     print(df.head())
     
     # features and target
-    X = df.message.values
-    Y = df.genre.values    
-
-    category_names = list(df.columns)[3:]
+    X = df.message
+    Y = df.iloc[:,4:]
+    category_names = list(df.columns[4:])
     
     return X, Y, category_names
 
@@ -132,7 +131,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     for i, col in enumerate(category_names):
         print('{} category metrics: '.format(col))
         print(classification_report(Y_test.iloc[:,i], Y_pred[:,i]))
-
+        
 
 def save_model(model, model_filepath):
     """
